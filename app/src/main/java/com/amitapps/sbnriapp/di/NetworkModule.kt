@@ -10,6 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+// DI for network call
 @InstallIn(SingletonComponent::class)
 @Module
 class NetworkModule {

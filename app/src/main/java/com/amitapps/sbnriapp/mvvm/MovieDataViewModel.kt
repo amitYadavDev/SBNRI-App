@@ -15,9 +15,12 @@ class MovieDataViewModel @Inject constructor(
     private val videoRepository: VideoRepository
 ) : ViewModel() {
 
+    // livedata to manage api data
     val movieResponseLiveData: LiveData<List<DataModel>>
         get() = videoRepository.movieResponseLiveData
 
+
+// hitting api to get data
     fun getMovieData() {
         viewModelScope.launch {
             videoRepository.getMovieData()

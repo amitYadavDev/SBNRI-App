@@ -1,13 +1,15 @@
-package com.amitapps.sbnriapp
+package com.amitapps.sbnriapp.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.amitapps.sbnriapp.R
 import com.amitapps.sbnriapp.data.network.DataModel
 import com.bumptech.glide.Glide
 
+// adapter for vertical
 class MovieAdapter(private val movieList: List<DataModel>) :
     RecyclerView.Adapter<MovieAdapter.ProductViewHolder>() {
 
