@@ -14,7 +14,8 @@ class VideoRepository @Inject constructor(private val movieApi: MovieApi) {
         get() = _movieResponseLiveData
 
     suspend fun getMovieData() {
-        val response = movieApi.getMovieData()
+        var response = movieApi.getMovieData()
+        for(res in 1..5) response += response
         _movieResponseLiveData.postValue(response)
     }
 }

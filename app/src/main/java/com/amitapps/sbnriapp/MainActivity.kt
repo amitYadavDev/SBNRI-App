@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         managerVertical =  LinearLayoutManager(this)
         managerHorizontal = LinearLayoutManager(this)
+        loadFragment(ShortsFragment(), R.id.shortsFragment)
 
 //        Log.d("movieDataViewModel", movieDataViewModel.movieResponseLiveData.)
 
@@ -48,14 +50,20 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        movieDataViewModel.movieResponseLiveData.observe(this, Observer {movieData->
-            Log.d("movieDataViewModelHorizontal", movieData.toString())
-            binding.horizontalRecyclerView.apply {
-                val response = movieData
-                adapter = MovieAdapter(response)
-                layoutManager = managerHorizontal
-                adapter = adapter
-            }
-        })
+//        movieDataViewModel.movieResponseLiveData.observe(this, Observer {movieData->
+//            Log.d("movieDataViewModelHorizontal", movieData.toString())
+//            binding.horizontalRecyclerView.apply {
+//                val response = movieData
+//                adapter = MovieAdapter(response)
+//                layoutManager = managerHorizontal
+//                adapter = adapter
+//            }
+//        })
+    }
+
+    private fun loadFragment(fragment: Fragment, containerId: Int) {
+        supportFragmentManager.beginTransaction()
+            .replace(containerId, fragment)
+            .commit()
     }
 }
