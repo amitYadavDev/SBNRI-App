@@ -42,7 +42,7 @@ class ShortsFragment : Fragment() {
         Log.d("movieDataViewModelHorizontal", "  yeah")
 
 
-        // recyclerview for vertical data
+        // setting data for horizontal recyclerview
         viewModel.movieResponseLiveData.observe(requireActivity(), Observer {movieData->
             Log.d("movieDataViewModelHorizontal", movieData.toString())
             binding.horizontalRecyclerView.apply {
